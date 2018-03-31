@@ -13,7 +13,7 @@ $ git checkout ...
 
 ## Install a Cross Toolchain for arm64/aarch64
 
-Download a cross toolchanin (e.g. by Linaro), unpack it, and set up the environment:
+Download a cross toolchanin (e.g. by Linaro, see **[LINA1]**), unpack it, and set up the environment:
 ```
 $ wget ...
 $ export ARCH="arm64"
@@ -21,7 +21,7 @@ $ export CROSS_COMPILE="aarch64-linux-gnu-"
 $ export SYSROOT=".../gcc-linaro-5.5.0-2017.10-x86_64_aarch64-linux-gnu/aarch64-linux-gnu"
 ```
 
-Add `.../cc-linaro-5.5.0-2017.10-x86_64_aarch64-linux-gnu/bin` to your **PATH** variable; preferably at the beginning.
+Add `.../gcc-linaro-5.5.0-2017.10-x86_64_aarch64-linux-gnu/bin` to your **PATH** variable; preferably at the beginning.
 
 ## Configurations
 
@@ -54,7 +54,7 @@ $ mkdir __pine64
 $ time make ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu- INSTALL_MOD_PATH=./__pine64 modules_install
 ```
 
-You will find the kernel modules in `__pine64/lib/modules/*<kernel version>*`
+You will find the kernel modules in `__pine64/lib/modules/<kernel version>`
 
 Build and install the device trees:
 ```
@@ -64,14 +64,3 @@ $ time make ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu- dtbs
 You will find the device trees in:
 * `./arch/arm64/boot/dts/allwinner/sun50i-a64-pine64-plus.dtb`
 * `./arch/arm64/boot/dts/allwinner/sun50i-a64-pine64.dtb`
-
-
-# Links
-* [Pine64 Web Page](https://www.pine64.org)
-* [Wiki: Pine64 Main Page](http://wiki.pine64.org/index.php/PINE_A64_Main_Page)
-
-* [Sunxi Pine64 Wiki](http://linux-sunxi.org/Pine64)
-
-* [Pine64 Pro: Linux Image Download](https://www.pine64.pro/downloads/linux-images)
-
-* [Linaro ARM toolchains - components - toolchain - binaries](http://releases.linaro.org)
