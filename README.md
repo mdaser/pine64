@@ -31,3 +31,20 @@
 * **[APRI2]** [Andre Przywara: ARM Trusted Firmware - version 1.0](https://github.com/apritzel/arm-trusted-firmware)
 
 * **[APRI3]** [Andre Przywara: Linux Kernel 4.x](https://github.com/apritzel/linux/tree/a64-v6-wip)
+
+## Kernel Repositories
+* **[GHUB1]** [GitHub: Torvalds' Kernel](https://github.com/torvalds/linux)
+
+* **[KRNL1]** [Kernel.org: Torvalds' Kernel](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git)
+
+* **[KRNL2]** [Kernel.org: Linux Stable](https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable.git)
+
+* **[SNXI1]** [Kernel.org: Sunxi Kernel](https://git.kernel.org/pub/scm/linux/kernel/git/sunxi/linux.git)
+
+* **[APRI4]** [GitHub: Sunxi64 Kernel 4.9 by apritzel](https://github.com/apritzel/linux/tree/sunxi64-4.9-testing)
+
+* **[OSKA1]** [GitHub: Sunxi64 Kernel 4.9 by apritzel ans oska874](https://github.com/oska874/linux-pine64) based on **[APRI4]**
+
+* **[LNGS2]** [GitHub: Kernel 3.10 by longsleep](https://github.com/longsleep/linux-pine64)
+
+* **[AYUF2]** [GitHub: Kernel 3.10 by ayufan](https://github.com/ayufan-pine64/linux-3.10)
