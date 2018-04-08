@@ -50,3 +50,8 @@
 * **[LNGS2]** [GitHub: Kernel 3.10 by longsleep](https://github.com/longsleep/linux-pine64)
 
 * **[AYUF2]** [GitHub: Kernel 3.10 by ayufan](https://github.com/ayufan-pine64/linux-3.10)
+
+## MarkDown
+* **[MD1]** [Markdown Cheatsheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
+
+* **[MD2]** [GitHub Flavored Markdown](https://guides.github.com/pdfs/markdown-cheatsheet-online.pdf)
