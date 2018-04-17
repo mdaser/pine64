@@ -2,18 +2,19 @@
 
 ![Pine64 Board](BrandNewToy.jpg)
 
-## SD Card Images
+## OS Images and Software
 ### Ubuntu Image by longsleep
-
-Download **[UBUN1]**
-
-... TBD ...
+An OS image may be downloaded from **[UBUN1]**.
 
 ### Arch Linux ARM
+Arch Linux images and instructions may be downloaded from **[ARCH1]**.
 
-Download **[ARCH1]**
+See the **Arch** directory for further instructions and configuration examples.
 
-... TBD ...
+### Buildroot 
+Download the build environment from **[BLDRT]**; the pages comes with instructions how to build an OS image.
+
+See the **buildroot** directory for a descriptions and examples how to build an image.
 
 
 # Links
@@ -31,6 +32,7 @@ Download **[ARCH1]**
 
 * **[ARCH1]** [Pine64 | Arch Linux ARM](https://archlinuxarm.org/platforms/armv8/allwinner/pine64)
 
+* **[BLDRT]** [Buildroot - Making Embedded Linux Easy](https://buildroot.org/)
 
 
 ## Development, Kernel, HowTo
