@@ -4,12 +4,12 @@
 # Set root partition to the second partition of boot device
 part uuid ${devtype} ${devnum}:${bootpart} uuid
 
+setenv serveraddr 192.168.1.5
+setenv fdtfile sun50i-a64-pine64-plus.dtb
+
 setenv bootargs console=${console} root=PARTUUID=${uuid} rw rootwait
 
-setenv serveraddr 192.168.1.5
-
 if dhcp ${kernel_addr_r} ${serveraddr}:a64/Image; then
-  setenv fdtfile sun50i-a64-pine64-plus.dtb
   if dhcp ${fdt_addr_r} ${serveraddr}:a64/${fdtfile}; then
     if dhcp ${ramdisk_addr_r} ${serveraddr}:a64/initramfs-linux.img; then
       booti ${kernel_addr_r} ${ramdisk_addr_r}:${filesize} ${fdt_addr_r};

@@ -2,12 +2,13 @@
 # mkimage -A arm -O linux -T script -C none -n "U-Boot boot script" -d boot.net.nfs.txt boot.net.nfs.scr
 
 # Set root partition to the second partition of boot device
-setenv bootargs console=${console} console=/dev/tty1 root=/dev/mmcblk0p2 rw rootwait
-
 setenv serveraddr 192.168.1.5
+setenv fdtfile sun50i-a64-pine64-plus.dtb
+setenv nfsroot ${serveraddr}:/export/pine64
+
+setenv bootargs console=${console} console=/dev/tty1 root=/dev/nfs nfsroot=${nfsroot} rw rootwait
 
 if dhcp ${kernel_addr_r} ${serveraddr}:a64/Image; then
-  setenv fdtfile sun50i-a64-pine64-plus.dtb
   if dhcp ${fdt_addr_r} ${serveraddr}:a64/${fdtfile}; then
     booti ${kernel_addr_r} - ${fdt_addr_r};
   fi;

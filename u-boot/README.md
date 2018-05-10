@@ -7,6 +7,7 @@
 
 
 
+
 ## Boot Scripts
 
 To simplify multi level boot steps any sequence of u-boot commands may be stored in a file, stored on the device, and executed from the command line or automatically.
@@ -81,8 +82,61 @@ The NFS server provides the full root fle system of the device.
 
 Please note, all the component may be derived from a distribution image or built with **buildroot**.
 
+Available configurations:
+
 * Kernel and Device Tree: **boot.net.txt**
 * Kernel, Device Tree, and Initial RAM Disk: **boot.net.ramfs.txt**
 * Kernel, Device Tree, and Root Filesystem vie NFS: **boot.net.nfs.txt**
+
+## Setup SD Card
+
+### Card Layout
+
+[Sunxi Wiki: Bootable SD Card](http://linux-sunxi.org/Bootable_SD_card)
+
+[U-Boot Sunxi](https://github.com/linux-sunxi/u-boot-sunxi/wiki)
+
+The above pages describe how to set up an SD card which may be booted by an Alwinner SoC/CPU.
+
+The card layout is:
+
+| Sector | Start | Size  | Comment                                            |
+| -----: | ----: | ----: | :------------------------------------------------- |
+|    0   |    0  |   8KB | Unused, available for partition table etc.         |
+|   16   |    8  |  32KB | Initial SPL loader                                 |
+|   80   |   40  | 504KB | u-boot  (sector 64 / 32KB for 2013.07 and earlier) |
+| 1088   |  544  | 128KB | environment                                        |
+| 1344   |  672  | 128KB | Falcon mode boot params                            |
+| 1600   |  800  |   --  | Falcon mode kernel start                           |
+| 2048   | 1024  |   --  | Free for partitions (higher if using Falcon boot)  |
+
+### Create SD Card
+
+The files used in this description were created in the **buildroot** environment.
+
+Blank the SD card:
+
+```
+$ sudo dd if=/dev/zero of=/dev/sdb bs=1M count=1
+```
+
+Write the SPL and u-boot binaries:
+
+```
+$ sudo dd if=sunxi-spl.bin of=/dev/sdb bs=1024 seek=8
+$ sudo dd if=u-boot.bin of=/dev/sdb bs=1024 seek=40
+```
+
+Create a boot parition of about 100MB; create a **vfat** filesystem.
+
+See the **Boot Scripts** section above.
+
+Copy a **boot.scr** file to the boot partition.
+
+Depending on the configuration, you have to copy a kernel image, a device tree blob, and possibly an initial RAM file system to the boot partition and adjust the paths and file names in the script accordingly.
+
+The root file system may be stored on the second partition.
+
+
 
 
