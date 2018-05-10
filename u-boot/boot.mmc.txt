@@ -1,4 +1,5 @@
-# After modifying, run ./mkscr
+# After modifying, run:
+# mkimage -A arm -O linux -T script -C none -n "U-Boot boot script" -d boot.net.mmc.txt boot.net.mmc.scr
 
 # Set root partition to the second partition of boot device
 part uuid ${devtype} ${devnum}:${bootpart} uuid
