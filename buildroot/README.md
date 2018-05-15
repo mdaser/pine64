@@ -5,4 +5,52 @@ Buildroot is a set of Makefiles and patches that simplifies and automates the pr
 See [buildroot@github.com: pine64](https://github.com/buildroot/buildroot/tree/master/board/pine64/pine64)
 for instructions how to build a pine64 OS image.
 
+## Pine64 Configuration File
+
 **dot.config.pine64** provides a configuration derived from **pine64_defconfig** which comes with buildroot.
+
+You may replace the configuration file **.config** in buildroot's base directory with this file and run the build.
+
+
+## Pine64 Plus Board Configuration
+
+The patch file **0001-default-configuration-pine64_plus-board.patch**
+was created on top of commit:
+
+
+```
+commit e711623912d0db2866a60e9daf6dbe89959de574
+Author: Fabrice Fontaine <fontaine.fabrice@gmail.com>
+Date:   Tue May 1 22:58:26 2018 +0200
+
+    libiscsi: add hash for license files
+
+    Signed-off-by: Fabrice Fontaine <fontaine.fabrice@gmail.com>
+    Signed-off-by: Thomas Petazzoni <thomas.petazzoni@bootlin.com>
+```
+
+It may as well apply on other versions.
+
+The patch introduces a new board type, the **Pine64 Plus**.
+
+Run
+```
+$ make list-defconfigs | grep pine
+```
+
+to show all configurations for a **Pine64** based board:
+
+```
+  pine64_defconfig                    - Build for pine64
+  pine64_plus_defconfig               - Build for pine64_plus
+  pine64_sopine_defconfig             - Build for pine64_sopine
+
+```
+
+Select the configuration for **Pine64 Plus** and call make to run the build:
+
+```
+$ make pine64_plus_defconfig
+$ make
+
+```
