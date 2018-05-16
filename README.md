@@ -2,19 +2,26 @@
 
 ![Pine64 Board](BrandNewToy.jpg)
 
-## OS Images and Software
-### Ubuntu Image by longsleep
-An OS image may be downloaded from **[UBUN1]**.
+## Linux Kernel for the Pine64
+There is currently support for the Pine64 board in the mainline / vanilla kernel.
 
-### Arch Linux ARM
-Arch Linux images and instructions may be downloaded from **[ARCH1]**.
+See the [kernel](./kernel/README.md) directory for instructions.
 
-See the **Arch** directory for further instructions and configuration examples.
+## Das U-Boot
+U-boot is a boot loader which may be used on the Pine64.
 
-### Buildroot 
+See the [Das U-Boot](./u-boot/README.md) directory for instrutions on the boot loeader. 
+
+## Buildroot 
 Download the build environment from **[BLDRT]**; the pages comes with instructions how to build an OS image.
 
-See the **buildroot** directory for a descriptions and examples how to build an image.
+See the [buildroot](./buildroot/README.md) directory for a description and examples how to build an image for the Pine64.
+
+## Ubuntu Image by longsleep
+An OS image may be downloaded from **[UBUN1]**.
+
+## Arch Linux ARM
+Arch Linux images and instructions may be downloaded from **[ARCH1]**.
 
 
 # Links
