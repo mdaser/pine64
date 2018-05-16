@@ -1,4 +1,4 @@
-# U-Boot
+# Das U-Boot
 
 **Das U-Boot** (subtitled "the Universal Boot Loader" and often shortened to U-Boot) is an open source, primary boot loader used in embedded devices to package the instructions to boot the device's operating system kernel. It is available for a number of computer architectures, including 68k, ARM, Blackfin, MicroBlaze, MIPS, Nios, SuperH, PPC, RISC-V and x86.
 
@@ -10,7 +10,7 @@
 
 ## Boot Scripts
 
-To simplify multi level boot steps any sequence of u-boot commands may be stored in a file, stored on the device, and executed from the command line or automatically.
+To simplify multi level boot steps any sequence of u-boot commands may be stored in a file, stored on the device (or SD card), and executed from the command line or automatically.
 
 A special script file is **boot.scr**; u-boot calls it automatically. 
 
@@ -57,11 +57,11 @@ It verifies each step and stops execution on failure.
 
 U-boot is able to boot from a TFTP server.
 
-It loads the various file from the server to a specific RAM address. Any further steps are similar to booting from SD card.
+It loads the various files from the server to a specific RAM address. Any further steps are similar to booting from SD card.
 
 If loading from the server fails, u-boot will enter the command prompt.
 
-For a complete setup install a dhcp and a tftp server on your development PC:
+For a complete setup install a dhcp and a tftp server on your development PC, e.g.:
 
 * tftpd-hpa - TFTP server
 * isc-dhcp-server - DHCP server
@@ -74,11 +74,11 @@ Files involved:
 
 * kernel: a64/Image
 * device tree: a64/sun50i-a64-pine64-plus.dtb
-* initial RAF disk: a64/initramfs-linux.img
+* initial RAM disk: a64/initramfs-linux.img
 
-The NFS is running on **192.168.1.5** and _TBD_
+The NFS server is running on **192.168.1.5** and _TBD_
 
-The NFS server provides the full root fle system of the device.
+The NFS server provides the full root file system of the device.
 
 Please note, all the component may be derived from a distribution image or built with **buildroot**.
 
@@ -112,22 +112,30 @@ The card layout is:
 
 ### Create SD Card
 
-The files used in this description were created in the **buildroot** environment.
+The files used in this description were created in the **buildroot** environment. They will be copied to the SD card.
 
-Blank the SD card:
+The easiest way to get a bootable SD card is to write **sdcard.img** to an SD card using **dd**; **buildroot** created the image for you.
+
+Creating a bootable SD card manually involve the following steps:
+
+- Blank the SD card :warning:
 
 ```
 $ sudo dd if=/dev/zero of=/dev/sdb bs=1M count=1
 ```
 
-Write the SPL and u-boot binaries:
+- Write the SPL and u-boot binaries :nut_and_bolt:
 
 ```
 $ sudo dd if=sunxi-spl.bin of=/dev/sdb bs=1024 seek=8
 $ sudo dd if=u-boot.bin of=/dev/sdb bs=1024 seek=40
 ```
 
-Create a boot parition of about 100MB; create a **vfat** filesystem.
+- Create boot partition :boot:
+
+Create a primary parition of about 100MB; it must be the first partition on the card.
+
+Create a **vfat** filesystem.
 
 See the **Boot Scripts** section above.
 
@@ -135,7 +143,11 @@ Copy a **boot.scr** file to the boot partition.
 
 Depending on the configuration, you have to copy a kernel image, a device tree blob, and possibly an initial RAM file system to the boot partition and adjust the paths and file names in the script accordingly.
 
-The root file system may be stored on the second partition.
+- Create root partition :house:
+
+The root file system may be stored on the second partition; e.g. by extracting **rootfs.tar**.
+
+
 
 
 
