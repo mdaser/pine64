@@ -14,22 +14,22 @@ You may replace the configuration file **.config** in buildroot's base directory
 
 ## Pine64 Plus Board Configuration
 
-The patch file **0001-default-configuration-pine64_plus-board.patch**
-was created on top of commit:
+The patch files **0001-default-configuration-pine64_plus-board.patch** and **0002-bump-kernel-version-to-4.17.15.patch**
+were created on top of commit:
 
 
 ```
-commit e711623912d0db2866a60e9daf6dbe89959de574
-Author: Fabrice Fontaine <fontaine.fabrice@gmail.com>
-Date:   Tue May 1 22:58:26 2018 +0200
+commit 65c47ce0a8d646211a5222035a821056896a5886
+Author: Bernd Kuhls <bernd.kuhls@t-online.de>
+Date:   Wed Aug 15 22:17:21 2018 +0200
 
-    libiscsi: add hash for license files
+    linux: bump default to version 4.17.15
 
-    Signed-off-by: Fabrice Fontaine <fontaine.fabrice@gmail.com>
-    Signed-off-by: Thomas Petazzoni <thomas.petazzoni@bootlin.com>
+    Signed-off-by: Bernd Kuhls <bernd.kuhls@t-online.de>
+    Signed-off-by: Peter Korsgaard <peter@korsgaard.com>
 ```
 
-It may as well apply on other versions.
+They may as well apply on other versions.
 
 The patch introduces a new board type, the **Pine64 Plus**.
 

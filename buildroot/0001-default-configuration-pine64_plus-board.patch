@@ -1,7 +1,7 @@
-From 896c04b6cc2ef73573cfcc4b29d72942c9aaa4c0 Mon Sep 17 00:00:00 2001
+From ca0aeca1aa8c55b39c2721a4064873ba7548d08c Mon Sep 17 00:00:00 2001
 From: Martin Daser <martin.daser@intel.com>
 Date: Mon, 14 May 2018 15:49:31 +0200
-Subject: [PATCH] default configuration: pine64_plus board
+Subject: [PATCH 1/2] default configuration: pine64_plus board
 
 this is a default configuration for the Pine64+ board.
 it is not a minimal configuration though, but includes
@@ -11,12 +11,13 @@ it is not a minimal configuration though, but includes
 - et al
 
 Signed-off-by: Martin Daser <martin.daser@web.de>
+Signed-off-by: Martin Daser <martin.daser@intel.com>
 ---
  board/pine64/pine64_plus/boot.cmd     |  6 ++++
- board/pine64/pine64_plus/genimage.cfg | 39 ++++++++++++++++++++++++
- board/pine64/pine64_plus/readme.txt   | 38 +++++++++++++++++++++++
- configs/pine64_plus_defconfig         | 57 +++++++++++++++++++++++++++++++++++
- 4 files changed, 140 insertions(+)
+ board/pine64/pine64_plus/genimage.cfg | 39 ++++++++++++++++++++++
+ board/pine64/pine64_plus/readme.txt   | 38 ++++++++++++++++++++++
+ configs/pine64_plus_defconfig         | 61 +++++++++++++++++++++++++++++++++++
+ 4 files changed, 144 insertions(+)
  create mode 100644 board/pine64/pine64_plus/boot.cmd
  create mode 100644 board/pine64/pine64_plus/genimage.cfg
  create mode 100644 board/pine64/pine64_plus/readme.txt
@@ -125,10 +126,10 @@ index 0000000..85226fd
 +is on the serial line, 115200 8N1.
 diff --git a/configs/pine64_plus_defconfig b/configs/pine64_plus_defconfig
 new file mode 100644
-index 0000000..08e085d
+index 0000000..3e21c35
 --- /dev/null
 +++ b/configs/pine64_plus_defconfig
-@@ -0,0 +1,57 @@
+@@ -0,0 +1,61 @@
 +BR2_aarch64=y
 +BR2_ARM_FPU_VFPV4=y
 +BR2_TOOLCHAIN_BUILDROOT_GLIBC=y
@@ -150,6 +151,7 @@ index 0000000..08e085d
 +BR2_LINUX_KERNEL_INTREE_DTS_NAME="allwinner/sun50i-a64-pine64-plus"
 +BR2_LINUX_KERNEL_EXT_FBTFT=y
 +BR2_PACKAGE_LINUX_TOOLS_GPIO=y
++BR2_PACKAGE_NFS_UTILS=y
 +BR2_PACKAGE_SDL=y
 +BR2_PACKAGE_LINUXCONSOLETOOLS=y
 +BR2_PACKAGE_AVAHI=y
@@ -158,8 +160,11 @@ index 0000000..08e085d
 +BR2_PACKAGE_IPUTILS=y
 +BR2_PACKAGE_MINIDLNA=y
 +BR2_PACKAGE_OPENSSH=y
++BR2_PACKAGE_OPENVPN=y
++BR2_PACKAGE_OPENVPN_SMALL=y
 +BR2_PACKAGE_USHARE=y
 +BR2_PACKAGE_TMUX=y
++BR2_TARGET_ROOTFS_CPIO=y
 +BR2_TARGET_ROOTFS_EXT2=y
 +BR2_TARGET_ROOTFS_EXT2_4=y
 +BR2_TARGET_ROOTFS_EXT2_SIZE="700M"

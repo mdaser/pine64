@@ -1,0 +1,26 @@
+From 56803c4c2868e3580516f53209c26468a8b6e8b9 Mon Sep 17 00:00:00 2001
+From: Martin Daser <martin.daser@intel.com>
+Date: Fri, 20 Jul 2018 15:51:05 +0200
+Subject: [PATCH 2/2] bump kernel version to 4.17.15
+
+Signed-off-by: Martin Daser <martin.daser@intel.com>
+---
+ configs/pine64_plus_defconfig | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/configs/pine64_plus_defconfig b/configs/pine64_plus_defconfig
+index 3e21c35..f9e4987 100644
+--- a/configs/pine64_plus_defconfig
++++ b/configs/pine64_plus_defconfig
+@@ -13,7 +13,7 @@ BR2_ROOTFS_POST_IMAGE_SCRIPT="support/scripts/genimage.sh"
+ BR2_ROOTFS_POST_SCRIPT_ARGS="-c board/pine64/pine64_plus/genimage.cfg"
+ BR2_LINUX_KERNEL=y
+ BR2_LINUX_KERNEL_CUSTOM_VERSION=y
+-BR2_LINUX_KERNEL_CUSTOM_VERSION_VALUE="4.16.4"
++BR2_LINUX_KERNEL_CUSTOM_VERSION_VALUE="4.17.15"
+ BR2_LINUX_KERNEL_USE_ARCH_DEFAULT_CONFIG=y
+ BR2_LINUX_KERNEL_DTS_SUPPORT=y
+ BR2_LINUX_KERNEL_INTREE_DTS_NAME="allwinner/sun50i-a64-pine64-plus"
+-- 
+2.7.4
+
