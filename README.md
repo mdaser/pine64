@@ -10,9 +10,9 @@ See the [kernel](./kernel/README.md) directory for instructions.
 ## Das U-Boot
 U-boot is a boot loader which may be used on the Pine64.
 
-See the [Das U-Boot](./u-boot/README.md) directory for instrutions on the boot loeader. 
+See the [Das U-Boot](./u-boot/README.md) directory for instrutions on the boot loeader.
 
-## Buildroot 
+## Buildroot
 Download the build environment from **[BLDRT]**; the pages comes with instructions how to build an OS image.
 
 See the [buildroot](./buildroot/README.md) directory for a description and examples how to build an image for the Pine64.
@@ -37,7 +37,7 @@ Arch Linux images and instructions may be downloaded from **[ARCH1]**.
 
 * **[UBUN1]** [Xenial Base Image 20161212-1 by longsleep](http://wiki.pine64.org/index.php/Pine_A64_Software_Release#Xenial_Base_Image_.5B20161218-1.5D_by_longsleep)
 
-* **[ARCH1]** [Pine64 | Arch Linux ARM](https://archlinuxarm.org/platforms/armv8/allwinner/pine64)
+* **[ARCH1]** [Pine64 Arch Linux ARM](https://archlinuxarm.org/platforms/armv8/allwinner/pine64)
 
 * **[BLDRT]** [Buildroot - Making Embedded Linux Easy](https://buildroot.org/)
 
