@@ -17,9 +17,6 @@ Download the build environment from **[BLDRT]**; the pages comes with instructio
 
 See the [buildroot](./buildroot/README.md) directory for a description and examples how to build an image for the Pine64.
 
-## Ubuntu Image by longsleep
-An OS image may be downloaded from **[UBUN1]**.
-
 ## Arch Linux ARM
 Arch Linux images and instructions may be downloaded from **[ARCH1]**.
 
@@ -35,7 +32,7 @@ Arch Linux images and instructions may be downloaded from **[ARCH1]**.
 ## OS Images
 * **[OSIMG]** [Pine A64 Software Release](http://wiki.pine64.org/index.php/Pine_A64_Software_Release)
 
-* **[UBUN1]** [Xenial Base Image 20161212-1 by longsleep](http://wiki.pine64.org/index.php/Pine_A64_Software_Release#Xenial_Base_Image_.5B20161218-1.5D_by_longsleep)
+* **[ARMBN]** [Armbian Distribution](https://www.armbian.com/)
 
 * **[ARCH1]** [Pine64 Arch Linux ARM](https://archlinuxarm.org/platforms/armv8/allwinner/pine64)
 
@@ -43,19 +40,21 @@ Arch Linux images and instructions may be downloaded from **[ARCH1]**.
 
 
 ## Development, Kernel, HowTo
-* **[LINA1]** [Linaro ARM toolchains](http://releases.linaro.org/components/toolchain/binaries) _(components - toolchain - binaries)_
+* **[LINA1]** [Linaro ARM toolchains](http://releases.linaro.org/components/toolchain/binaries)
+
+* **[ARMDV]** [ARM Resources Developer](https://developer.arm.com/)
 
 * **[AYUF1]** [Kamil Trzciński's Pine A64 and Pinebook experiments](https://github.com/ayufan-pine64)
 
-* **[UMID1]** [Uli Middelberg: How To compile a custom Linux kernel for your ARM device](https://github.com/umiddelb/armhf/wiki/How-To-compile-a-custom-Linux-kernel-for-your-ARM-device)
+* **[UMID1]** [Uli Middelberg: How To compile a custom Linux kernel for your ARM device](https://github.com/umiddelb/armhf/wiki/How-To-compile-a-custom-Linux-kernel-for-your-ARM-device) *(dated)*
 
-* **[LNGS1]** [Simon Eisenmann: Build Pine 64 Image](https://github.com/longsleep/build-pine64-image)
+* **[LNGS1]** [Simon Eisenmann: Build Pine 64 Image](https://github.com/longsleep/build-pine64-image) *(dated)*
 
-* **[APRI1]** [Andre Przywara: Usage Instructions For the Image Files (w. FW Images)](https://github.com/apritzel/pine64)
+* **[APRI1]** [Andre Przywara: Usage Instructions For the Image Files (w. FW Images)](https://github.com/apritzel/pine64) *(dated)*
 
-* **[APRI2]** [Andre Przywara: ARM Trusted Firmware - version 1.0](https://github.com/apritzel/arm-trusted-firmware)
+* **[APRI2]** [Andre Przywara: ARM Trusted Firmware - version 1.0](https://github.com/apritzel/arm-trusted-firmware) *(dated)*
 
-* **[APRI3]** [Andre Przywara: Linux Kernel 4.x](https://github.com/apritzel/linux/tree/a64-v6-wip)
+* **[APRI3]** [Andre Przywara: Linux Kernel 4.x](https://github.com/apritzel/linux/tree/a64-v6-wip) *(dated)*
 
 ## Kernel Repositories
 * **[GHUB1]** [GitHub: Torvalds' Kernel](https://github.com/torvalds/linux)
