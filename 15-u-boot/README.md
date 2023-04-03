@@ -2,17 +2,102 @@
 
 **Das U-Boot** (subtitled "the Universal Boot Loader" and often shortened to U-Boot) is an open source, primary boot loader used in embedded devices to package the instructions to boot the device's operating system kernel. It is available for a number of computer architectures, including 68k, ARM, Blackfin, MicroBlaze, MIPS, Nios, SuperH, PPC, RISC-V and x86.
 
+The boot process consists of two steps initiated by the ROM monitor.
+They are called **fsbl** and **ssbl**.
+
+  * **fsbl** is provided by the **ARM Trusted Firmware**
+  * **ssbl** is provided by **U-Boot**
+
+The build process generates a single binary which will be flashed to an SD card.
+
+## Build U-Boot
+
+Select a toolchain which matches the Pine 64 board / A64 SoC, e.g. **aarch64-none-linux-gnu**.
+
+### Build ARM Trusted Firmware
+
+Clone the sources for  ARM Trusted firmware:
+
+``` bash
+$ git clone https://git.trustedfirmware.org/TF-A/trusted-firmware-a.git
+$ cd trusted-firmware-a/
+$ git checkout master
+```
+
+Depending on the state of **master** you may have to check out a different version.
+
+There are build instructions in *.../docs/plat/allwinner.rst*.
+
+Select the default configuration for the board.
+
+``` bash
+$ make pine64_plus_defconfig
+```
+
+**TODO** change extra settings ... if required.
+
+Finally, run the build.
+
+``` bash
+$ make CROSS_COMPILE=aarch64-none-linux-gnu- DEBUG=1 PLAT=sun50i_a64
+```
+
+You should find **bl31.bin** in *.../build/sun50i_a64/debug* or *.../build/sun50i_a64/release*.
+
+### Build U-Boot
+
+Clone the U-Boot sources:
+
+``` bash
+$ git clone https://gitlab.denx.de/u-boot/u-boot
+$ cd u-boot
+$ git checkout v2022.07
+```
+
+You may have to check out a different stable version.
+
+There are build instructions in *.../doc/board/allwinner/sunxi.rst*.
+
+Specify the paths to the **bl31.bin** and **SCP** files; built above.
+
+``` bash
+$ export BL31=../rusted-firmware-a/build/sun50i_a64/release/bl31.bin
+$ export SCP=/dev/null
+```
+
+As we don't use SCP, set it to */dev/null*.
+
+Select the default configuration for the board.
+
+``` bash
+$ make CROSS_COMPILE=aarch64-none-linux-gnu- pine64_plus_defconfig
+```
+
+**TODO** change extra settings ... see, embedded training lab instructions.
+
+Finally, run the build.
+
+``` bash
+$ make CROSS_COMPILE=aarch64-none-linux-gnu-
+```
+
+### Create SD Card
+
+
+
+``` bash
+sudo dd if=./u-boot-sunxi-with-spl.bin of=/dev/sdb bs=1k seek=8
+```
+
 
 ## Boot Environment
-
-
 
 
 ## Boot Scripts
 
 To simplify multi level boot steps any sequence of u-boot commands may be stored in a file, stored on the device (or SD card), and executed from the command line or automatically.
 
-A special script file is **boot.scr**; u-boot calls it automatically. 
+A special script file is **boot.scr**; u-boot calls it automatically.
 
 Well, kind of. It depends on the default environment settings. The **printenv** command shows the environment settings.
 There is usually a variable, which determines which scripts may be executed, e.g.:
@@ -68,7 +153,7 @@ For a complete setup install a dhcp and a tftp server on your development PC, e.
 
 We assume the DHCP server is running on **192.168.1.5** and serves addresses in that sub net.
 
-The TFTP server is running on **192.168.1.5** and all the files are stored in the **a64** directory of the server. 
+The TFTP server is running on **192.168.1.5** and all the files are stored in the **a64** directory of the server.
 
 Files involved:
 
@@ -96,7 +181,7 @@ Available configurations:
 
 [U-Boot Sunxi](https://github.com/linux-sunxi/u-boot-sunxi/wiki)
 
-The above pages describe how to set up an SD card which may be booted by an Alwinner SoC/CPU.
+The above pages describe how to set up an SD card which may be booted by an Allwinner SoC/CPU.
 
 The card layout is:
 
@@ -146,9 +231,3 @@ Depending on the configuration, you have to copy a kernel image, a device tree b
 - Create root partition :house:
 
 The root file system may be stored on the second partition; e.g. by extracting **rootfs.tar**.
-
-
-
-
-
-
