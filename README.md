@@ -20,6 +20,38 @@ See the [buildroot](./20-buildroot/README.md) directory for a description and ex
 ## Arch Linux ARM
 Arch Linux images and instructions may be downloaded from **[ARCH1]**.
 
+## Tool Chains
+
+Get a toolchain for ARM based components from **[LINA3]**, **[ARMDV1]**, or **[ARMDV2]**.
+
+Select a toolchain which matches the Pine 64 board / A64 SoC, e.g. **aarch64-none-linux-gnu**.
+
+You should set the following environment variables:
+
+``` bash
+ ARCH         : arm64
+ CROSS_COMPILE: aarch64-none-linux-gnu-
+ SYSROOT      : /home/md/opt/x-tools/arm-gnu-toolchain-12.2.rel1-x86_64-aarch64-none-linux-gnu/aarch64-none-linux-gnu/libc
+ PATH         : /home/md/opt/x-tools/arm-gnu-toolchain-12.2.rel1-x86_64-aarch64-none-linux-gnu/bin
+```
+
+
+The **SCP Firmware**  ***(Crust)*** runs on a different architechture.
+You need a different tool chain for for building the software.
+
+See **[OPNRSC]** for toolchain binaries.
+
+Export the following environment variables.
+
+``` bash
+ ARCH         : or1k
+ CROSS_COMPILE: or1k-linux-musl-
+ SYSROOT      : /home/md/opt/x-tools/or1k-linux-musl-cross/or1k-linux-musl
+ PATH         : /home/md/opt/x-tools/or1k-linux-musl-cross/bin
+```
+
+The paths may be sligtly different, depending on your installation.
+
 
 # Links
 ## Basic Information
@@ -49,6 +81,8 @@ Arch Linux images and instructions may be downloaded from **[ARCH1]**.
 * **[ARMDV1]** [ARM Developer Resources](https://developer.arm.com)
 
 * **[ARMDV2]** [Arm GNU Toolchain](https://developer.arm.com/Tools%20and%20Software/GNU%20Toolchain)
+
+* **[OPNRSC]** [OpenRISC Toolchains](https://github.com/openrisc/or1k-gcc/releases)
 
 * **[AYUF1]** [Kamil Trzciński's Pine A64 and Pinebook experiments](https://github.com/ayufan-pine64)
 
